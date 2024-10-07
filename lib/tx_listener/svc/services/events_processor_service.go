@@ -48,10 +48,10 @@ func (p *eventProcessorService) ProcessEvents(ctx context.Context, fundsDeposite
 
 // processFundsDeposited processes a FundsDeposited event from the AssetForwarder contract.
 func (p *eventProcessorService) processFundsDeposited(ctx context.Context, event *contracts.AssetForwarderFundsDeposited) {
-	// Convert the destination chain ID to a string
+	// Convert the destination chain ID to a string.
 	destinationChainID := utils.Bytes32ToString(event.DestChainIdBytes)
 
-	// Check if the destination chain ID is in the list of chain IDs
+	// Check if the destination chain ID is in the list of chain IDs.
 	for _, chainId := range p.chainIDs {
 		if chainId == destinationChainID {
 			// Start a new goroutine to handle the transaction receipt checking asynchronously.
