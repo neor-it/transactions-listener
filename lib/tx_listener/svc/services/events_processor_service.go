@@ -66,7 +66,7 @@ func (p *eventProcessorService) processFundsDeposited(ctx context.Context, event
 func (p *eventProcessorService) processTransactionReceipt(ctx context.Context, event *contracts.AssetForwarderFundsDeposited, destinationChainID string) {
 	// Loop indefinitely until the transaction is either successful or failed.
 	for {
-		// Get the transaction receipt using the transaction hash.
+		// Get the transaction using the transaction hash.
 		tx, isPending, err := p.client.TransactionByHash(ctx, event.Raw.TxHash)
 		// If there is an error in getting the transaction receipt, log the error and return from the goroutine.
 		if err != nil {
