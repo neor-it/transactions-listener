@@ -1,0 +1,5 @@
+.vscode/
+.idea/
+cmd/txloader/.env
+main
+main.exe
