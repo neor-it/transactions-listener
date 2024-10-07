@@ -12,6 +12,8 @@ import (
 func main() {
 	// Recover from panics.
 	defer pkgcommon.CatchPanic()
+
+	// Create a new context.
 	ctx := context.Background()
 
 	// Load the configuration.
@@ -26,7 +28,6 @@ func main() {
 		log.Fatal("Error connecting to the Ethereum client:", err)
 	}
 
-	// Start the transactions listener service with the client and configuration.
 	log.Println("Transactions listener service is started successfully")
 
 	// Create a new service instance with the client and configuration.
